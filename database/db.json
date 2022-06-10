@@ -1,0 +1,29 @@
+{
+  "products": [
+    {
+      "name": "white polo",
+      "price": 500000,
+      "categoryId": 1,
+      "id": 1
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "polo"
+    },
+    {
+      "id": 2,
+      "name": "shirt"
+    },
+    {
+      "id": 3,
+      "name": "shorts"
+    },
+    {
+      "id": 4,
+      "name": "pants"
+    }
+  ],
+  "comments": []
+}
