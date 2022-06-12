@@ -28,16 +28,18 @@ export const ProductImgWrapper = styled.div`
   }
   &:hover #show-size {
     opacity: 1;
-    bottom: 14px;
+    bottom: 40px;
   }
 `;
 
 // size
 export const SizeProduct = styled.div`
+  display: flex;
+  align-items: center;
   position: absolute;
   background-color: transparent;
-  height: 80px;
-  bottom: -20px;
+  height: 20px;
+  bottom: 20px;
   left: 0;
   width: 100%;
   padding: 15px 12px;

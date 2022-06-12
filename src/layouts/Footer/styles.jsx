@@ -8,6 +8,9 @@ export const SiteContainer = styled.div`
   line-height: 160%;
   color: #d9d9d9;
   margin-top: 30px;
+  @media (max-width: 990px) {
+    display: none;
+  }
 `;
 export const FooterContainer = styled.div`
   padding-left: 16px;

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const mainContainer = styled.div`
   margin-top: 81px;
-  min-height: 300vh;
+  height: 100%;
 `;
 export const Layout = styled.div`
   opacity: ${({ isShowMenuHeader, isShowMenuAbout }) =>

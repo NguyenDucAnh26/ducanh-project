@@ -45,10 +45,17 @@ export const SliderContentBtn = styled.a`
     color: black;
     background-color: white;
   }
+
+  @media (max-width: 990px) {
+    margin: 10px 0;
+  }
 `;
 
 export const flexContentWrapper = styled.div`
   display: flex;
   margin-left: -15px;
   margin-right: -15px;
+  @media (max-width: 990px) {
+    flex-direction: column;
+  }
 `;

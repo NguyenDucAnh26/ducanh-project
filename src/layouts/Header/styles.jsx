@@ -1,9 +1,5 @@
 import styled from "styled-components";
-import {
-  SearchOutlined,
-  UserOutlined,
-  ShoppingCartOutlined,
-} from "@ant-design/icons";
+
 export const HeaderContainer = styled.div`
   position: fixed;
   top: ${({ showHeader }) => (showHeader ? "-81px" : "0")};
@@ -53,6 +49,11 @@ export const HeaderInner = styled.div`
   width: 100%;
   padding-left: 30px;
   padding-right: 30px;
+  @media (max-width: 990px) {
+    height: 50px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
 `;
 export const Logo = styled.div`
   height: 36px;
@@ -61,7 +62,18 @@ export const LogoImg = styled.img`
   width: auto;
   height: 100%;
 `;
-export const Menu = styled.div``;
+export const MenuIcon = styled.div`
+  width: 68px;
+  @media (min-width: 990px) {
+    display: none;
+  }
+`;
+
+export const Menu = styled.div`
+  @media (max-width: 990px) {
+    display: none;
+  }
+`;
 export const MenuList = styled.ul`
   display: flex;
   justify-content: center;
@@ -96,6 +108,20 @@ export const Icons = styled.div`
   display: flex;
   align-items: center;
 `;
+export const SearchIcon = styled.div`
+  @media (max-width: 990px) {
+    display: none;
+  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  margin: 0 6px;
+  &:hover {
+    color: #8e8e8e;
+  }
+`;
+
 export const Icon = styled.div`
   display: flex;
   justify-content: center;

@@ -3,6 +3,7 @@ import {
   SearchOutlined,
   UserOutlined,
   ShoppingCartOutlined,
+  MenuOutlined,
 } from "@ant-design/icons";
 import { Tooltip } from "antd";
 import * as S from "./styles";
@@ -43,6 +44,13 @@ function Header({
       </S.HeaderTopBar>
       <S.HeaderBar>
         <S.HeaderInner>
+          <S.MenuIcon
+            style={{
+              cursor: "pointer",
+            }}
+          >
+            <MenuOutlined />
+          </S.MenuIcon>
           <S.Logo>
             <a href="/">
               <S.LogoImg src={LogoPage}></S.LogoImg>
@@ -84,9 +92,9 @@ function Header({
           </S.Menu>
           <S.Icons>
             <a href="/">
-              <S.Icon>
+              <S.SearchIcon>
                 <SearchOutlined />
-              </S.Icon>
+              </S.SearchIcon>
             </a>
             <a href="/">
               <S.Icon>
