@@ -5,8 +5,14 @@ export const mainContainer = styled.div`
   height: 100%;
 `;
 export const Layout = styled.div`
-  opacity: ${({ isShowMenuHeader, isShowMenuAbout }) =>
-    isShowMenuHeader || isShowMenuAbout ? "0.8" : "1"};
-  background-color: ${({ isShowMenuHeader, isShowMenuAbout }) =>
-    isShowMenuHeader || isShowMenuAbout ? " rgba(77, 77, 77, 0.69)" : "#fff"};
+  opacity: ${({ isShowMenuHeader, isShowMenuAbout, isShowMenuMobile }) =>
+    isShowMenuHeader || isShowMenuAbout || isShowMenuMobile ? "0.8" : "1"};
+  background-color: ${({
+    isShowMenuHeader,
+    isShowMenuAbout,
+    isShowMenuMobile,
+  }) =>
+    isShowMenuHeader || isShowMenuAbout || isShowMenuMobile
+      ? " rgba(77, 77, 77, 0.69)"
+      : "#fff"};
 `;

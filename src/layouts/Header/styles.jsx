@@ -109,16 +109,17 @@ export const Icons = styled.div`
   align-items: center;
 `;
 export const SearchIcon = styled.div`
-  @media (max-width: 990px) {
-    display: none;
-  }
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 22px;
   margin: 0 6px;
+  cursor: pointer;
   &:hover {
     color: #8e8e8e;
+  }
+  @media (max-width: 990px) {
+    display: none;
   }
 `;
 
@@ -128,6 +129,7 @@ export const Icon = styled.div`
   align-items: center;
   font-size: 22px;
   margin: 0 6px;
+  cursor: pointer;
   &:hover {
     color: #8e8e8e;
   }
@@ -148,4 +150,23 @@ export const CartNumber = styled.span`
   background-color: #2f5acf;
   border-radius: 100px;
   pointer-events: none;
+`;
+
+export const SearchWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: white;
+`;
+
+export const SearchMobile = styled.div`
+  width: 100%;
+  padding: 0 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+export const SearchFlex = styled.div`
+  width: 50%;
+  height: 50%;
 `;

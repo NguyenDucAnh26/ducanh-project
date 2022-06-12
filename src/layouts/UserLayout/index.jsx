@@ -6,6 +6,7 @@ import * as S from "./styles";
 function UserLayout() {
   const [isShowMenuHeader, setIsShowMenuHeader] = useState(false);
   const [isShowMenuAbout, setIsShowMenuAbout] = useState(false);
+  const [isShowMenuMobile, setIsShowMenuMobile] = useState(false);
 
   return (
     <>
@@ -14,10 +15,13 @@ function UserLayout() {
         setIsShowMenuHeader={setIsShowMenuHeader}
         isShowMenuAbout={isShowMenuAbout}
         setIsShowMenuAbout={setIsShowMenuAbout}
+        isShowMenuMobile={isShowMenuMobile}
+        setIsShowMenuMobile={setIsShowMenuMobile}
       />
       <S.Layout
         isShowMenuAbout={isShowMenuAbout}
         isShowMenuHeader={isShowMenuHeader}
+        isShowMenuMobile={isShowMenuMobile}
       >
         <S.mainContainer>
           <Outlet />
