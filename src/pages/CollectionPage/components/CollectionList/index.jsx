@@ -1,6 +1,6 @@
 import * as S from "./styles";
 import { Col, Row } from "antd";
-import ProductCard from "../../../ProductCard";
+import ProductCard from "../../../../layouts/ProductCard";
 
 function CollectionList() {
   return (
