@@ -1,6 +1,6 @@
 import { Typography, Tabs, Col, Row } from "antd";
 import * as S from "./style";
-import ProductCard from "./ProductCard";
+import ProductCard from "../../../../layouts/ProductCard";
 const { Title } = Typography;
 const { TabPane } = Tabs;
 function HomeProduct() {

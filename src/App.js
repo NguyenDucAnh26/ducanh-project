@@ -3,7 +3,7 @@ import "antd/dist/antd.css";
 import "./reset.css";
 import "./fonts.css";
 import HomePage from "./pages/HomePage";
-import ProductListPage from "./pages/ProductListPage";
+import CollectionPage from "./pages/CollectionPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import UserLayout from "./layouts/UserLayout";
 import { ROUTES } from "./constants/routes";
@@ -12,7 +12,7 @@ function App() {
     <Routes>
       <Route element={<UserLayout />}>
         <Route element={<HomePage />} path={ROUTES.USER.HOME} />
-        <Route element={<ProductListPage />} path={ROUTES.USER.PRODUCT_LIST} />
+        <Route element={<CollectionPage />} path={ROUTES.USER.COLLECTION} />
         <Route
           element={<ProductDetailPage />}
           path={ROUTES.USER.PRODUCT_DETAIL}

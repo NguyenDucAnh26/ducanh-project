@@ -58,6 +58,8 @@ export const ListHead = styled.li`
 // bo suu tap
 export const ListMegaItem = styled.li`
   margin: 10px 0;
+  height: 40px;
+  line-height: 1.4rem;
 `;
 export const HeadLink = styled.a`
   display: block;
@@ -68,7 +70,6 @@ export const HeadLink = styled.a`
 export const SubLink = styled.span`
   display: block;
   font-size: 80%;
-  margin-top: -4%;
   font-weight: normal;
   width: 100%;
   &:hover {
@@ -76,7 +77,7 @@ export const SubLink = styled.span`
   }
 `;
 export const Link = styled.a`
-  line-height: 2.2rem;
+  /* line-height: 3rem; */
   font-weight: 700;
 `;
 export const NavList = styled.ul`
