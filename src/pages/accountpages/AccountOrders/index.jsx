@@ -1,21 +1,14 @@
 import React from "react";
-
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import * as S from "./styles";
-import { Typography, Button, Divider, Image, Tag } from "antd";
+import { Typography, Divider, Tag } from "antd";
 import Card from "antd/lib/card/Card";
-import Meta from "antd/lib/card/Meta";
-import moment from "moment";
-import {
-  getUserListAction,
-  updateUserInfoAction,
-} from "../../../redux/actions";
+import { getUserListAction } from "../../../redux/actions";
 const { Title } = Typography;
 
 function AccountOrders() {
-  const { userList, userInfo } = useSelector((state) => state.user);
+  const { userInfo } = useSelector((state) => state.user);
 
   const dispatch = useDispatch();
   useEffect(() => {

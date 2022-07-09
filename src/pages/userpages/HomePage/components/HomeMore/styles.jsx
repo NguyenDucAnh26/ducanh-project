@@ -57,3 +57,24 @@ export const Image = styled.img`
   -o-object-fit: cover;
   object-fit: cover;
 `;
+export const Marquee = styled.div`
+  line-height: 40px;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  box-sizing: border-box;
+`;
+export const MarP = styled.p`
+  color: white;
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 15s linear infinite;
+  @keyframes marquee {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(-100%, 0);
+    }
+  }
+`;

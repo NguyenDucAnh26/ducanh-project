@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useState, useEffect, useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Form, Input, InputNumber, Button, Select } from "antd";
 import { ROUTES } from "../../../constants/routes";
@@ -13,7 +13,6 @@ import {
   clearProductDetailAction,
 } from "../../../redux/actions";
 import * as S from "./styles";
-const { Option } = Select;
 function UpdateProductPage() {
   const [updateForm] = Form.useForm();
   const dispatch = useDispatch();

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useState, useEffect, useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Form, Input, InputNumber, Button, Select } from "antd";
 
@@ -16,12 +16,9 @@ const initialValues = {
   price: 0,
   categoryId: undefined,
 };
-const { Option } = Select;
 function AddProductPage() {
   const dispatch = useDispatch();
-  const { productList, createProductData } = useSelector(
-    (state) => state.product
-  );
+  const { createProductData } = useSelector((state) => state.product);
   const { categoryList } = useSelector((state) => state.category);
   useEffect(() => {
     dispatch(getProductListAction());

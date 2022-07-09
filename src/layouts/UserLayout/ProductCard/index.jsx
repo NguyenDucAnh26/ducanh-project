@@ -1,8 +1,7 @@
 import React from "react";
 
 import { Card, Form, notification, Radio, Skeleton } from "antd";
-import { StarFilled } from "@ant-design/icons";
-import { useEffect, useState, useMemo } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { generatePath, useNavigate } from "react-router-dom";
 import { ROUTES } from "../../../constants/routes";
@@ -16,14 +15,12 @@ import {
   getVariantListAction,
   getCommentListAction,
 } from "../../../redux/actions";
-import { FormItemPrefixContext } from "antd/lib/form/context";
 const { Meta } = Card;
 function ProductCard({ data }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { productImagesList } = useSelector((state) => state.productImages);
   const { variantList } = useSelector((state) => state.variant);
-  const { commentList } = useSelector((state) => state.comment);
   useEffect(() => {
     dispatch(getProductImagesListAction());
     dispatch(getProductListAction());
@@ -40,10 +37,6 @@ function ProductCard({ data }) {
   const sizebyDataColor = variantList.data.filter(
     (item) => item.productId === data.product.id && item.color === data.color
   );
-  const commentFilter = commentList.data.filter(
-    (item) => item.productId === data.product.id
-  );
-
   const renderSizeProductColor = sizebyDataColor.map((item) => {
     return (
       <Radio.Button

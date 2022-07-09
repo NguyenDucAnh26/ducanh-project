@@ -1,8 +1,7 @@
 import React from "react";
 
 import { Card, Form, Radio, Rate, Skeleton } from "antd";
-import { StarFilled } from "@ant-design/icons";
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { generatePath, useNavigate } from "react-router-dom";
 import { ROUTES } from "../../../constants/routes";

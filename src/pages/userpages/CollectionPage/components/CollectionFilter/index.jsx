@@ -1,23 +1,15 @@
 import React from "react";
 
 import * as S from "./styles";
-import { Form, Input, Select, Slider } from "antd";
+import { Form, Input, Select } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import {
-  getProductListAction,
-  getCategoryListAction,
-  deleteProductAction,
-} from "../../../../../redux/actions";
+import { getCategoryListAction } from "../../../../../redux/actions";
 const { Option } = Select;
 
 function CollectionFilter({ handleSearh, handleFilterCategory }) {
-  const onChange = (value) => {};
-
-  const onAfterChange = (value) => {};
-
   const dispatch = useDispatch();
   const { categoryList } = useSelector((state) => state.category);
 

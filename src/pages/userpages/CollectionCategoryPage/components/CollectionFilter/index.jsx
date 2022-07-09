@@ -1,7 +1,7 @@
 import React from "react";
 
 import * as S from "./styles";
-import { Form, Input, Select, Slider } from "antd";
+import { Form, Input, Select } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 const { Option } = Select;
 function CollectionFilter({ handleSearh }) {

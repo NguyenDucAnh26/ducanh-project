@@ -1,9 +1,7 @@
 import React from "react";
-
 import * as S from "./styles";
-import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
-import { Image, InputNumber, Card } from "antd";
+import { useDispatch } from "react-redux";
+import { Image, Card } from "antd";
 import {
   CloseOutlined,
   MinusCircleOutlined,
@@ -17,7 +15,6 @@ import {
 
 function CartProductCard({ data }) {
   const dispatch = useDispatch();
-  const { cartList } = useSelector((state) => state.cart);
   const PriceProduct = data.price.toLocaleString("vi", {
     style: "currency",
     currency: "VND",

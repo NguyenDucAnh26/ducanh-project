@@ -1,7 +1,6 @@
 import React from "react";
-import axios from "axios";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate, Navigate } from "react-router-dom";
 import * as S from "./styles";
 import { Typography, Divider } from "antd";
@@ -12,7 +11,6 @@ import { ROUTES } from "../../constants/routes";
 const { Title } = Typography;
 function AccountLayout() {
   const pathname = window.location.pathname;
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isShowMenuHeader, setIsShowMenuHeader] = useState(false);
   const [isShowMenuAbout, setIsShowMenuAbout] = useState(false);

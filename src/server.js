@@ -7,7 +7,7 @@ const router = jsonServer.router("./database/db.json");
 const middlewares = jsonServer.defaults({
   static: "./build",
 });
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 3000;
 server.db = router.db;
 server.use(middlewares);
 server.use(jsonServer.bodyParser);
@@ -36,4 +36,4 @@ server.use((req, res, next) => {
 
 server.use(auth);
 server.use(router);
-server.listen(4000);
+server.listen(port);

@@ -1,5 +1,6 @@
-import React from "react";
+/* eslint-disable jsx-a11y/anchor-is-valid */
 
+import React from "react";
 import * as S from "./styles";
 import { Col, Row } from "antd";
 
@@ -7,11 +8,13 @@ function HomeMore() {
   return (
     <S.HomeMoreContainer>
       <S.HomePageMoreCaption>
-        <marquee>
-          CoolClub - Ưu đãi nhiều hơn, mua sắm vui hơn. Nhận ngay ưu đãi 7% cho
-          lần mua sắm tiếp theo
-        </marquee>
-        <S.LinkCaption>Gia nhập ngay</S.LinkCaption>
+        <S.Marquee>
+          <S.MarP>
+            CoolClub - Ưu đãi nhiều hơn, mua sắm vui hơn. Nhận ngay ưu đãi 7%
+            cho lần mua sắm tiếp theo
+          </S.MarP>
+        </S.Marquee>
+        {/* <S.LinkCaption>Gia nhập ngay</S.LinkCaption> */}
       </S.HomePageMoreCaption>
 
       <S.HomePageMoreImages>
