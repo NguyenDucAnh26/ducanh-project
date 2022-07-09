@@ -7,7 +7,7 @@ import SiteHeader from "./Header";
 import Loading from "./Loading";
 import { ROUTES } from "../../constants/routes";
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Header, Content, Footer } = Layout;
 function AdminLayout() {
   const accessToken = localStorage.getItem("accessToken");
   const { userInfo } = useSelector((state) => state.user);
