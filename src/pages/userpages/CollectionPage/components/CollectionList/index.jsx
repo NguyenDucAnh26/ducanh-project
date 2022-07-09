@@ -6,19 +6,12 @@ import ProductCard from "../../../../../layouts/UserLayout/ProductCard";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useMemo } from "react";
 import { PAGE_SIZE } from "../../../../../constants/pagination";
-import Loading from "../../../../../layouts/UserLayout/Loading";
-import {
-  getProductListUserAction,
-  getColorListAction,
-  getCategoryListAction,
-} from "../../../../../redux/actions";
+import { getColorListAction } from "../../../../../redux/actions";
 import { DownOutlined, LoadingOutlined } from "@ant-design/icons";
 
 function CollectionList({ filterParams, handleShowMore }) {
-  // { categoryUrl, categoryName, categoryId, test }
   const dispatch = useDispatch();
   const { colorList } = useSelector((state) => state.color);
-
   useEffect(() => {
     dispatch(
       getColorListAction({
@@ -27,8 +20,6 @@ function CollectionList({ filterParams, handleShowMore }) {
         limit: PAGE_SIZE.MINI,
       })
     );
-    dispatch(getProductListUserAction());
-    dispatch(getCategoryListAction());
   }, []);
 
   const renderProductByCategory = useMemo(() => {

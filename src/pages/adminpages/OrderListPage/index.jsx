@@ -1,17 +1,7 @@
 import React from "react";
 
 import * as S from "./styles";
-import {
-  Space,
-  Table,
-  Button,
-  Pagination,
-  Input,
-  Select,
-  Popconfirm,
-  Tag,
-  message,
-} from "antd";
+import { Space, Table, Button, Popconfirm, Tag, message } from "antd";
 import { DeleteOutlined, EyeOutlined } from "@ant-design/icons";
 import { getOrderListAction, deleteOrderAction } from "../../../redux/actions";
 import { useSelector, useDispatch } from "react-redux";

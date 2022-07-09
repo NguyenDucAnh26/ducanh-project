@@ -5,7 +5,6 @@ import React from "react";
 import * as S from "./styles";
 import { generatePath, useNavigate } from "react-router-dom";
 import { ROUTES } from "../../../../constants/routes";
-import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getProductListAction } from "../../../../redux/actions";
 

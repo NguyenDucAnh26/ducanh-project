@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { getColorListAction } from "../../../redux/actions";
 import { PAGE_SIZE } from "../../../constants/pagination";
-import { useLocation } from "react-router-dom";
 function CollectionPage() {
   const dispatch = useDispatch();
   const { colorList } = useSelector((state) => state.color);

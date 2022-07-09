@@ -1,13 +1,11 @@
 import React from "react";
-
 import { Typography, Tabs, Col, Row } from "antd";
 import * as S from "./style";
 import ProductCardHomePage from "../../../../../layouts/UserLayout/ProductCardHomePage";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import {
   getProductListUserAction,
-  getProductListAction,
   getColorListAction,
   getCategoryListAction,
 } from "../../../../../redux/actions";
@@ -15,11 +13,7 @@ const { Title } = Typography;
 const { TabPane } = Tabs;
 function HomeProduct() {
   const dispatch = useDispatch();
-  const { categoryList } = useSelector((state) => state.category);
-  const { colorList } = useSelector((state) => state.color);
-  const { productListUser, productList } = useSelector(
-    (state) => state.product
-  );
+  const { productListUser } = useSelector((state) => state.product);
   // const [productShow, setProductShow] = useState(1);
 
   useEffect(() => {

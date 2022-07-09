@@ -1,23 +1,12 @@
 import React from "react";
-
 import * as S from "./styles";
-import {
-  Space,
-  Table,
-  Button,
-  Pagination,
-  Input,
-  Select,
-  Popconfirm,
-  Tag,
-  message,
-} from "antd";
+import { Space, Table, Button, Popconfirm, message } from "antd";
 import { DeleteOutlined, EyeOutlined } from "@ant-design/icons";
 import { getUserListAction } from "../../../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, generatePath } from "react-router-dom";
 import { ROUTES } from "../../../constants/routes";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 function UserListPage() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -27,7 +16,7 @@ function UserListPage() {
   const navigate = useNavigate();
   const { userList } = useSelector((state) => state.user);
 
-  const [deleteId, setDeleteId] = useState();
+  // const [deleteId, setDeleteId] = useState();
   const confirm = () => {
     // dispatch(deleteOrderAction({ id: deleteId }));
     message.success("Deleted complete");
@@ -106,7 +95,7 @@ function UserListPage() {
               >
                 <Button
                   onClick={() => {
-                    setDeleteId(record.id);
+                    // setDeleteId(record.id);
                   }}
                   size="small"
                   style={{

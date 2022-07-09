@@ -5,11 +5,7 @@ import { Col, Row } from "antd";
 import ProductCard from "../../../../../layouts/UserLayout/ProductCard";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useMemo } from "react";
-import {
-  getProductListUserAction,
-  getColorListAction,
-  getCategoryListAction,
-} from "../../../../../redux/actions";
+import { getColorListAction } from "../../../../../redux/actions";
 
 function CollectionList({ filterId }) {
   const dispatch = useDispatch();

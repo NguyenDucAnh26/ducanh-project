@@ -1,23 +1,7 @@
 import React from "react";
 
 import * as S from "./styles";
-import {
-  Form,
-  Typography,
-  Card,
-  Space,
-  Table,
-  Button,
-  Pagination,
-  Input,
-  Select,
-  message,
-  Popconfirm,
-  Tag,
-  Modal,
-  Divider,
-  notification,
-} from "antd";
+import { Card, Button, Select, Divider, notification } from "antd";
 import {
   getOrderDetailAction,
   updateOrderAction,
@@ -26,7 +10,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { ROUTES } from "../../../constants/routes";
-import Title from "antd/lib/skeleton/Title";
 
 const { Option } = Select;
 function OrderDetailPage() {

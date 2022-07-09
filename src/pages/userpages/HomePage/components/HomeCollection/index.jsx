@@ -3,7 +3,7 @@ import React from "react";
 import { Col, Row } from "antd";
 import * as S from "./styles";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { getCategoryListAction } from "../../../../../redux/actions";
 import { generatePath, useNavigate } from "react-router-dom";
 import { ROUTES } from "../../../../../constants/routes";

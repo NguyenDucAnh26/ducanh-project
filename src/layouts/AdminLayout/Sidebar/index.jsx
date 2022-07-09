@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Menu, Layout } from "antd";
 import {
-  UserOutlined,
   CreditCardFilled,
   ShopFilled,
   ShoppingOutlined,
@@ -14,10 +13,8 @@ import {
 } from "@ant-design/icons";
 import LogoPage from "../../../assets/img/logooo.png";
 import { ROUTES } from "../../../constants/routes";
-import { useSelector, useDispatch } from "react-redux";
-
+import { useDispatch } from "react-redux";
 import { logoutAction } from "../../../redux/actions";
-import * as S from "./styles";
 const { Sider } = Layout;
 
 function Sidebar() {

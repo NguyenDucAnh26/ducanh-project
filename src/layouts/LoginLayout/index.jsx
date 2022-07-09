@@ -3,7 +3,6 @@ import * as S from "./styles";
 import { useState } from "react";
 import { Outlet, Navigate } from "react-router-dom";
 import Header from "../UserLayout/Header";
-import Footer from "../UserLayout/Footer";
 import { ROUTES } from "../../constants/routes";
 import background from "../../assets/img/backgroundlogin2.jpeg";
 function LoginLayout() {

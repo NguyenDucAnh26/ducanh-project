@@ -65,10 +65,8 @@ function AccountInfo() {
   const [districtName, setDistrictName] = useState();
   const [communeName, setCommuneName] = useState();
   const [provinceName, setProvinceName] = useState();
-  const { userList, userInfo } = useSelector((state) => state.user);
-  const { cartList } = useSelector((state) => state.cart);
+  const { userInfo } = useSelector((state) => state.user);
 
-  const accessToken = localStorage.getItem("accessToken");
   useEffect(() => {
     axios.get(apiProvinces).then(function(response) {
       const provinces = response.data;

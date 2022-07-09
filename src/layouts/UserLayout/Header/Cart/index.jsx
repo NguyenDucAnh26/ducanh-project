@@ -4,7 +4,7 @@ import { Badge, Tooltip } from "antd";
 import { getCartListAction } from "../../../../redux/actions";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { useSelector, useDispatch } from "react-redux";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ROUTES } from "../../../../constants/routes";
 function Cart() {
@@ -18,7 +18,6 @@ function Cart() {
   return (
     <Link to={ROUTES.USER.CART}>
       <S.Icon>
-        {/* <S.CartNumber>{cartList.totalCount}</S.CartNumber> */}
         <Tooltip
           placement="bottomRight"
           title={
