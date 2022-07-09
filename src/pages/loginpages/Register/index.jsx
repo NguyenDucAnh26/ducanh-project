@@ -1,3 +1,5 @@
+import React from "react";
+
 import * as S from "./styles";
 import { Typography, Form, Input, Button, Divider } from "antd";
 import { FacebookFilled, GooglePlusOutlined } from "@ant-design/icons";

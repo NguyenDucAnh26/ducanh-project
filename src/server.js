@@ -1,16 +1,21 @@
+const auth = require("json-server-auth");
 const moment = require("moment");
 const jsonServer = require("json-server");
-const auth = require("json-server-auth");
 
 const server = jsonServer.create();
 const router = jsonServer.router("./database/db.json");
-
-const middlewares = jsonServer.defaults();
-
+const middlewares = jsonServer.defaults({
+  static: "../build",
+});
+const port = process.env.PORT || 4000;
 server.db = router.db;
-
 server.use(middlewares);
 server.use(jsonServer.bodyParser);
+server.use(
+  jsonServer.rewriter({
+    "/api/*": "/$1",
+  })
+);
 
 server.use((req, res, next) => {
   if (req.method === "POST") {

@@ -1,3 +1,5 @@
+import React from "react";
+
 import * as S from "./styles";
 import ImgCrop from "antd-img-crop";
 import { EditFilled, DeleteFilled } from "@ant-design/icons";
@@ -64,7 +66,7 @@ function DetailProductPage() {
     const image = new Image();
     image.src = src;
     const imgWindow = window.open(src);
-    imgWindow?.document.write(image.outerHTML);
+    imgWindow.document.write(image.outerHTML);
   };
   const productId = productDetail.data.id;
   const imageProductFilter = productImagesList.data.filter(

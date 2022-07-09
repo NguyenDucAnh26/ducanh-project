@@ -1,3 +1,4 @@
+import React from "react";
 import * as S from "./styles";
 import "./custom.css";
 import { ROUTES } from "../../../constants/routes";
@@ -6,10 +7,7 @@ import {
   ShoppingOutlined,
   CheckOutlined,
   PlusOutlined,
-  RightOutlined,
-  LeftOutlined,
   StarFilled,
-  FundTwoTone,
   LoadingOutlined,
 } from "@ant-design/icons";
 import {
@@ -33,15 +31,13 @@ import {
   Image,
 } from "antd";
 import Slider from "react-slick";
-import ProductCard from "../../../layouts/UserLayout/ProductCard";
-import Loading from "../../../layouts/UserLayout/Loading";
+// import ProductCard from "../../../layouts/UserLayout/ProductCard";
 import { useState, useEffect, useRef } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import moment from "moment";
 import {
-  getUserInfoAction,
   createCartAction,
   getColorListAction,
   getProductDetailAction,
@@ -131,9 +127,7 @@ function ProductDetailPage() {
   const { id } = useParams();
   const { state } = useLocation();
 
-  const { productDetail, productListUser } = useSelector(
-    (state) => state.product
-  );
+  const { productDetail } = useSelector((state) => state.product);
   const { variantList } = useSelector((state) => state.variant);
   const { commentList } = useSelector((state) => state.comment);
   const { userInfo } = useSelector((state) => state.user);

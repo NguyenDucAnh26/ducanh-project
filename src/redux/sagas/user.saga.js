@@ -17,7 +17,7 @@ function* loginSaga(action) {
     notification.success({
       message: "Đăng nhập thành công",
     });
-    if (result.data?.user?.role === "admin") {
+    if (result.data.user.role === "admin") {
       yield callback.goToDashboard();
     } else {
       yield callback.goToHome();

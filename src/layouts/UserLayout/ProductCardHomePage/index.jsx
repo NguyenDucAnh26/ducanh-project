@@ -1,3 +1,5 @@
+import React from "react";
+
 import { Card, Form, Radio, Rate, Skeleton } from "antd";
 import { StarFilled } from "@ant-design/icons";
 import { useEffect, useState, useMemo } from "react";

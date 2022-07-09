@@ -1,5 +1,5 @@
 import { Form, Input } from "antd";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Cart from "./Cart";
 import { ROUTES } from "../../../constants/routes";
 import {
@@ -45,7 +45,7 @@ function Header({
     getProductListAction({ limit: 0 });
   }, []);
 
-  window.onclick = function (event) {
+  window.onclick = function(event) {
     const inputHeader = document.getElementById("inputHeader");
     if (event.target === searchIcon) {
       inputHeader.focus();

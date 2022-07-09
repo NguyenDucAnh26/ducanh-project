@@ -1,5 +1,6 @@
-import React, { useLayoutEffect } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
+import { useLayoutEffect } from "react";
 import { Provider } from "react-redux";
 import { BrowserRouter, useLocation } from "react-router-dom";
 import "./index.css";

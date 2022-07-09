@@ -1,7 +1,8 @@
+import React from "react";
 import * as S from "./styles";
 import { Typography, Form, Input, Button, Divider, Checkbox } from "antd";
 import { FacebookFilled, GooglePlusOutlined } from "@ant-design/icons";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { loginAction } from "../../../redux/actions";

@@ -1,3 +1,4 @@
+import React from "react";
 import * as S from "./styles";
 import { Badge, Tooltip } from "antd";
 import { getCartListAction } from "../../../../redux/actions";

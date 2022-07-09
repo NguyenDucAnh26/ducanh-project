@@ -1,3 +1,5 @@
+import React from "react";
+
 import * as S from "./styles";
 import { Col, Row } from "antd";
 import { generatePath, useNavigate } from "react-router-dom";

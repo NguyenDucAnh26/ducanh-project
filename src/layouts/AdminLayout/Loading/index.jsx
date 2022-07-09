@@ -1,4 +1,4 @@
-import * as S from "./styles";
+import React from "react";
 
 function Loading() {
   return (

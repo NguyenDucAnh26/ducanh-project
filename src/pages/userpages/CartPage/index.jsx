@@ -1,3 +1,5 @@
+import React from "react";
+
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -90,15 +92,15 @@ function CartPage() {
 
   const [changeBorderCart, setChangeBorderCart] = useState(false);
   useEffect(() => {
-    axios.get(apiProvinces).then(function (response) {
+    axios.get(apiProvinces).then(function(response) {
       const provinces = response.data;
       setProvince(provinces);
     });
-    axios.get(apiDistrict).then(function (response) {
+    axios.get(apiDistrict).then(function(response) {
       const districts = response.data;
       setDistrict(districts);
     });
-    axios.get(apiCommune).then(function (response) {
+    axios.get(apiCommune).then(function(response) {
       const communes = response.data;
       setCommune(communes);
     });

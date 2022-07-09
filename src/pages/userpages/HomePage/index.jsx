@@ -1,3 +1,5 @@
+import React from "react";
+
 import * as S from "./styles";
 import HomeSlider from "./components/Slider";
 import HomeProduct from "./components/HomeProduct";

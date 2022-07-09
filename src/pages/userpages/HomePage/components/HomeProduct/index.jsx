@@ -1,3 +1,5 @@
+import React from "react";
+
 import { Typography, Tabs, Col, Row } from "antd";
 import * as S from "./style";
 import ProductCardHomePage from "../../../../../layouts/UserLayout/ProductCardHomePage";

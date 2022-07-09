@@ -1,3 +1,5 @@
+import React from "react";
+
 import { Typography } from "antd";
 import * as S from "./styles";
 

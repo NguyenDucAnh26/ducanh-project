@@ -1,3 +1,4 @@
+import React from "react";
 import * as S from "./styles";
 import { useState } from "react";
 import { Outlet, Navigate } from "react-router-dom";

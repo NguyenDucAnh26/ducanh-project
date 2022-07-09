@@ -1,3 +1,5 @@
+import React from "react";
+
 import { Rate } from "antd";
 import Slider from "react-slick";
 import { useSelector, useDispatch } from "react-redux";

@@ -1,4 +1,5 @@
-import * as S from "./styles";
+import React from "react";
+
 import CollectionFilter from "./components/CollectionFilter";
 import CollectionList from "./components/CollectionList";
 import { useDispatch, useSelector } from "react-redux";

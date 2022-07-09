@@ -1,3 +1,5 @@
+import React from "react";
+
 import * as S from "./styles";
 import CollectionFilter from "./components/CollectionFilter";
 import CollectionList from "./components/CollectionList";
