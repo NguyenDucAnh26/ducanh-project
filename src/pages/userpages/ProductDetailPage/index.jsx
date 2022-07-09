@@ -666,7 +666,7 @@ function ProductDetailPage() {
 
         <S.SuggestProductsContainer>
           <S.ProductsSave>
-            <Slider>{/* <ProductCard /> */}</Slider>
+            {/* <Slider><ProductCard /></Slider> */}
           </S.ProductsSave>
           <S.ProductSameCategory></S.ProductSameCategory>
         </S.SuggestProductsContainer>
