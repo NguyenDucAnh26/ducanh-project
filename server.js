@@ -4,10 +4,17 @@ const jsonServer = require("json-server");
 
 const server = jsonServer.create();
 const router = jsonServer.router("./database/db.json");
-const middlewares = jsonServer.defaults();
+const middlewares = jsonServer.defaults({
+  static: "./buid",
+});
 const port = process.env.PORT || 4000;
 server.db = router.db;
 server.use(middlewares);
+server.use(
+  jsonServer.rewriter({
+    "/api/*": "/$1",
+  })
+);
 server.use(jsonServer.bodyParser);
 server.use((req, res, next) => {
   if (req.method === "POST") {
