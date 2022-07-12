@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const HeaderContainer = styled.div``;
+export const HeaderContainer = styled.div`
+  @media (max-width: 724px) {
+    display: none;
+  }
+`;
 export const HeaderGrid = styled.div`
   display: flex;
   justify-content: space-between;
@@ -12,9 +16,15 @@ export const HeaderSearch = styled.div`
   display: flex;
   align-items: center;
   width: 300px;
+  @media (max-width: 724px) {
+    display: none;
+  }
 `;
 export const HeaderMenu = styled.div`
   display: flex;
+  @media (max-width: 724px) {
+    display: none;
+  }
 `;
 export const MenuItem = styled.div`
   cursor: pointer;

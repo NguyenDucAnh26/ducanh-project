@@ -216,21 +216,39 @@ function ProductsPage() {
             marginBottom: "20px",
           }}
         >
-          <Input
-            onChange={(e) => handleSearh(e.target.value)}
-            placeholder="Tìm kiếm"
-          />
-          <Select
-            mode="multiple"
-            allowClear
-            options={formattedCategoryOptions}
-            onChange={(values) => handleFilterCategory(values)}
-            placeholder="Hãng sản xuất"
-            style={{ width: "100%" }}
-          />
+          <S.CardFilter>
+            <S.CardContent>
+              <Input
+                size="small"
+                onChange={(e) => handleSearh(e.target.value)}
+                placeholder="Tìm kiếm"
+              />
+            </S.CardContent>
+            <S.CardContent>
+              <Select
+                size="small"
+                mode="multiple"
+                allowClear
+                options={formattedCategoryOptions}
+                onChange={(values) => handleFilterCategory(values)}
+                placeholder="Hãng sản xuất"
+                style={{ width: "100%" }}
+              />
+            </S.CardContent>
+          </S.CardFilter>
         </Card>
-        <Table pagination={false} columns={columns} dataSource={item} />
+        <Table
+          style={{
+            marginBottom: "10px",
+          }}
+          pagination={false}
+          columns={columns}
+          dataSource={item}
+        />
         <Pagination
+          style={{
+            textAlign: "center",
+          }}
           current={productList.meta.page}
           total={productList.meta.total}
           onChange={(page) => handleChanglePage(page)}

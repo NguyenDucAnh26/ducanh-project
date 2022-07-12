@@ -22,3 +22,6 @@ export const deleteProductAction = createAction(
 export const clearProductDetailAction = createAction(
   REQUEST(PRODUCT_ACTION.CLEAR_PRODUCT_DETAIL)
 );
+export const getViewedProducts = createAction(
+  REQUEST(PRODUCT_ACTION.GET_VIEWED_PRODUCTS)
+);

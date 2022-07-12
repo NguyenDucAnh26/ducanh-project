@@ -5,6 +5,7 @@ import { REQUEST, SUCCESS, FAIL, USER_ACTION } from "../constants";
 const initialState = {
   userList: {
     data: [],
+    meta: {},
     loading: false,
     error: null,
   },
@@ -147,12 +148,13 @@ const userReducer = createReducer(initialState, {
     };
   },
   [SUCCESS(USER_ACTION.GET_USER_LIST)]: (state, action) => {
-    const { data } = action.payload;
+    const { data, meta } = action.payload;
     return {
       ...state,
       userList: {
         ...state.userList,
         data: data,
+        meta: meta,
         loading: false,
       },
     };

@@ -252,11 +252,17 @@ export const ClickLogIn = styled.span`
   }
 `;
 export const SuggestProductsContainer = styled.div`
-  display: flex;
+  margin-top: 32px;
 `;
-export const ProductsSave = styled.div`
-  flex: 1;
-`;
+export const ProductsSave = styled.div``;
 export const ProductSameCategory = styled.div`
-  flex: 1;
+  margin-bottom: 22px;
+`;
+export const TitleProducts = styled.h4`
+  margin-bottom: 22px;
+  font-weight: 600;
+  text-align: center;
+`;
+export const CardWrapper = styled.div`
+  padding: 0 8px;
 `;

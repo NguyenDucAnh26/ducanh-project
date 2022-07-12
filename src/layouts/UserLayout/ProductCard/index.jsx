@@ -61,6 +61,7 @@ function ProductCard({ data }) {
         />
       );
     }
+    return null;
   });
   const renderImagePresentHoverProduct = productImagesByData.map(
     (item, index) => {
@@ -74,6 +75,7 @@ function ProductCard({ data }) {
           />
         );
       }
+      return null;
     }
   );
 

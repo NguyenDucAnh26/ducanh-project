@@ -14,7 +14,7 @@ function HomeAbout() {
           </S.AboutCardImageWrapper>
           <S.AboutCardContent>
             <S.ContentTitle>
-              Trải nghiệm mua sắm hài lòng với #Coolmate
+              Trải nghiệm mua sắm hài lòng với #DucAnh
             </S.ContentTitle>
             <S.AboutCardContentDesc>
               <p style={{ lineHeight: "1.8rem" }}>

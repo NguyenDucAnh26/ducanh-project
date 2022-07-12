@@ -49,23 +49,26 @@ function HomeComment() {
   };
 
   const CollectionListByCategory = useMemo(() => {
-    return commentList.data.map((item) => {
-      return (
-        <S.ColComment key={item.id}>
-          <S.CardComment>
-            <S.RowImage>
-              <S.Time>{moment(item.createdAt).format("MM/DD/YYYY ")}</S.Time>
-              <S.ImgWrap>
-                <S.imgContent src={item.productImg} alt="cool" />
-              </S.ImgWrap>
-            </S.RowImage>
-            <S.Author>{item.user.fullName}</S.Author>
-            <S.Content>{item.content}</S.Content>
-            <S.ContentProductName>{item.productName}</S.ContentProductName>
-            <Rate disabled defaultValue={item.rate} />
-          </S.CardComment>
-        </S.ColComment>
-      );
+    return commentList.data.map((item, index) => {
+      if (index < 12) {
+        return (
+          <S.ColComment key={item.id}>
+            <S.CardComment>
+              <S.RowImage>
+                <S.Time>{moment(item.createdAt).format("MM/DD/YYYY ")}</S.Time>
+                <S.ImgWrap>
+                  <S.imgContent src={item.productImg} alt="cool" />
+                </S.ImgWrap>
+              </S.RowImage>
+              <S.Author>{item.user.fullName}</S.Author>
+              <S.Content>{item.content}</S.Content>
+              <S.ContentProductName>{item.productName}</S.ContentProductName>
+              <Rate disabled defaultValue={item.rate} />
+            </S.CardComment>
+          </S.ColComment>
+        );
+      }
+      return null;
     });
   }, [commentList]);
 

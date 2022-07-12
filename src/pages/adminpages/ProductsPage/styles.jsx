@@ -32,3 +32,11 @@ export const AddProduct = styled.button`
     color: #0a0a0a;
   }
 `;
+export const CardFilter = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+export const CardContent = styled.div`
+  width: 40%;
+  margin-top: 8px;
+`;

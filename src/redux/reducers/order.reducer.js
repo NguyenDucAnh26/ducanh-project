@@ -4,6 +4,7 @@ import { REQUEST, SUCCESS, FAIL, ORDER_ACTION } from "../constants";
 const initialState = {
   orderList: {
     data: [],
+    meta: {},
     loading: false,
     error: null,
   },

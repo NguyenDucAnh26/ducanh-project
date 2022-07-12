@@ -1,5 +1,4 @@
 import React from "react";
-
 import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import jwtDecode from "jwt-decode";
@@ -15,6 +14,8 @@ import Register from "./pages/loginpages/Register";
 import AccountInfo from "./pages/accountpages/AccountInfo";
 import AccountOrders from "./pages/accountpages/AccountOrders";
 import HomePage from "./pages/userpages/HomePage";
+import AboutPage from "./pages/userpages/AboutPage";
+import SizesPage from "./pages/userpages/SizesPage";
 import CollectionPage from "./pages/userpages/CollectionPage";
 import CollectionCategoryPage from "./pages/userpages/CollectionCategoryPage";
 import CartPage from "./pages/userpages/CartPage";
@@ -50,6 +51,8 @@ function App() {
     <Routes>
       <Route element={<UserLayout />}>
         <Route element={<HomePage />} path={ROUTES.USER.HOME} />
+        <Route element={<AboutPage />} path={ROUTES.USER.ABOUT} />
+        <Route element={<SizesPage />} path={ROUTES.USER.SIZES} />
         <Route element={<CollectionPage />} path={ROUTES.USER.COLLECTION} />
         <Route
           element={<CollectionCategoryPage />}

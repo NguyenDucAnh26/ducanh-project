@@ -3,6 +3,8 @@ export const ROUTES = {
   REGISTER: "/register",
   USER: {
     HOME: "/",
+    ABOUT: "/about",
+    SIZES: "/sizes",
     ACCOUNT_INFO: "/account/info",
     ACCOUNT_ORDERS: "/account/orders",
     COLLECTION: "/collection",

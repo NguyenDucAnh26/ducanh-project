@@ -9,4 +9,3 @@ export * from "./cart.constant";
 export * from "./order.constant";
 export * from "./comment.constant";
 export * from "./favorite.constant";
-export * from "./viewedProduct.constant";

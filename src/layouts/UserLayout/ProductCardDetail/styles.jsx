@@ -14,7 +14,7 @@ export const ProductImg = styled.img`
   height: 80%;
 `;
 export const ProductImgHover = styled.img`
-  display: none;
+  display: none !important;
   width: 100%;
 `;
 export const ProductImgWrapper = styled.div`
@@ -25,7 +25,7 @@ export const ProductImgWrapper = styled.div`
   }
 
   &:hover #img-hover {
-    display: block;
+    display: block !important;
   }
   &:hover #show-size {
     opacity: 1;
@@ -56,7 +56,7 @@ export const ProductNameWarpper = styled.div`
 `;
 export const ProductNameContent = styled.h3`
   font-weight: 700;
-  font-size: 14px;
+  font-size: 12px;
 `;
 
 export const ProductPriceWarpper = styled.div`
@@ -65,7 +65,7 @@ export const ProductPriceWarpper = styled.div`
 `;
 
 export const ProductPrice = styled.span`
-  font-size: 14px;
+  font-size: 12px;
   color: red;
   font-weight: 500;
 `;
@@ -88,8 +88,6 @@ export const StarWrapper = styled.div``;
 export const StarGrid = styled.div`
   display: flex;
   margin-top: 10px;
-  justify-content: flex-start;
-  align-items: center;
 `;
 export const StarProduct = styled.span`
   margin: 0 3px;
@@ -97,7 +95,8 @@ export const StarProduct = styled.span`
 `;
 export const RateNumbers = styled.span`
   color: #2f5acf;
-  margin-left: 10px;
+  font-size: 12px;
+  margin-left: 2px;
 `;
 export const ImgRadio = styled.img`
   height: 100%;

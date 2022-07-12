@@ -18,7 +18,6 @@ function SiteHeader() {
               <Input
                 style={{
                   width: "100%",
-                  border: "none",
                   border: "1px solid black",
                 }}
                 prefix={

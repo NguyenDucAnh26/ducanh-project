@@ -1,8 +1,9 @@
 import React from "react";
-
 import CollectionFilter from "./components/CollectionFilter";
 import CollectionList from "./components/CollectionList";
 import { useDispatch } from "react-redux";
+import { PAGE_SIZE } from "../../../constants/pagination";
+
 import { useState, useEffect } from "react";
 import {
   getColorListAction,
@@ -32,12 +33,25 @@ function CollectionCategoryPage() {
       })
     );
   }
+  function handleSortPrice(value) {
+    setFilterParams({
+      ...filterParams,
+      sortOrder: value,
+    });
+    dispatch(
+      getColorListAction({
+        ...filterParams,
+        sortOrder: value,
+      })
+    );
+  }
   return (
     <div>
       <CollectionFilter
         filterParams={filterParams}
         setFilterParams={setFilterParams}
         handleSearh={handleSearh}
+        handleSortPrice={handleSortPrice}
       />
       <CollectionList filterId={state} />
     </div>

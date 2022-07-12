@@ -36,6 +36,7 @@ function HomeProduct() {
           </Col>
         );
       }
+      return null;
     });
   }, [productListUser]);
 

@@ -1,16 +1,17 @@
 import React from "react";
 import * as S from "./styles";
-import { Space, Table, Button, Popconfirm, message } from "antd";
+import { Space, Table, Button, Popconfirm, message, Pagination } from "antd";
 import { DeleteOutlined, EyeOutlined } from "@ant-design/icons";
 import { getUserListAction } from "../../../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, generatePath } from "react-router-dom";
 import { ROUTES } from "../../../constants/routes";
+import { PAGE_SIZE } from "../../../constants/pagination";
 import { useEffect } from "react";
 function UserListPage() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getUserListAction());
+    dispatch(getUserListAction({ page: 1, limit: PAGE_SIZE.SMALL }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const navigate = useNavigate();
@@ -31,6 +32,14 @@ function UserListPage() {
     };
   });
 
+  function handleChanglePage(page) {
+    dispatch(
+      getUserListAction({
+        page: page,
+        limit: PAGE_SIZE.SMALL,
+      })
+    );
+  }
   const columns = [
     {
       title: "ID",
@@ -123,9 +132,20 @@ function UserListPage() {
           <S.HeadTitle>Users</S.HeadTitle>
         </S.OrderHead>
         <Table
+          style={{
+            marginBottom: "20px",
+          }}
           pagination={false}
           columns={columns}
           dataSource={userListDataTable}
+        />
+        <Pagination
+          style={{
+            textAlign: "center",
+          }}
+          current={userList.meta.page}
+          total={userList.meta.total}
+          onChange={(page) => handleChanglePage(page)}
         />
       </S.OrderWrapper>
     </S.OrderContainer>

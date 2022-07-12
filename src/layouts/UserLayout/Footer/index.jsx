@@ -1,8 +1,10 @@
 import React from "react";
-
+import { ROUTES } from "../../../constants/routes";
+import { useNavigate, generatePath } from "react-router-dom";
 import * as S from "./styles";
 
 function Footer() {
+  const navigate = useNavigate();
   return (
     <S.SiteContainer>
       <S.FooterContainer>
@@ -13,27 +15,100 @@ function Footer() {
                 {/* kham pha coolmate */}
                 <S.MenuItemHead>Khám phá</S.MenuItemHead>
                 <S.MenuItemLists>
-                  <S.MenuItemList>
+                  <S.MenuItemList
+                    onClick={() => {
+                      const newPath = generatePath(
+                        ROUTES.USER.COLLECTION_CATEGORY,
+                        {
+                          category: "polo",
+                        }
+                      );
+                      navigate(newPath, { state: 1 });
+                    }}
+                  >
                     <S.Link>Áo Polo</S.Link>
                   </S.MenuItemList>
-                  <S.MenuItemList>
+                  <S.MenuItemList
+                    onClick={() => {
+                      const newPath = generatePath(
+                        ROUTES.USER.COLLECTION_CATEGORY,
+                        {
+                          category: "t-shirt",
+                        }
+                      );
+                      navigate(newPath, { state: 6 });
+                    }}
+                  >
                     <S.Link>Áo T-shirt</S.Link>
                   </S.MenuItemList>
-                  <S.MenuItemList>
+                  <S.MenuItemList
+                    onClick={() => {
+                      const newPath = generatePath(
+                        ROUTES.USER.COLLECTION_CATEGORY,
+                        {
+                          category: "tanktop",
+                        }
+                      );
+                      navigate(newPath, { state: 7 });
+                    }}
+                  >
                     <S.Link>Áo tanktop</S.Link>
                   </S.MenuItemList>
                 </S.MenuItemLists>
               </S.MenuItem>
               <S.MenuItem>
                 <S.MenuItemLists>
-                  <S.MenuItemList>
+                  <S.MenuItemList
+                    onClick={() => {
+                      const newPath = generatePath(
+                        ROUTES.USER.COLLECTION_CATEGORY,
+                        {
+                          category: "shirt",
+                        }
+                      );
+                      navigate(newPath, { state: 2 });
+                    }}
+                  >
                     <S.Link>Áo sơ mi</S.Link>
                   </S.MenuItemList>
-                  <S.MenuItemList>
+                  <S.MenuItemList
+                    onClick={() => {
+                      const newPath = generatePath(
+                        ROUTES.USER.COLLECTION_CATEGORY,
+                        {
+                          category: "pants",
+                        }
+                      );
+                      navigate(newPath, { state: 4 });
+                    }}
+                  >
                     <S.Link>Quần Pants</S.Link>
                   </S.MenuItemList>
-                  <S.MenuItemList>
+                  <S.MenuItemList
+                    onClick={() => {
+                      const newPath = generatePath(
+                        ROUTES.USER.COLLECTION_CATEGORY,
+                        {
+                          category: "jeans",
+                        }
+                      );
+                      navigate(newPath, { state: 5 });
+                    }}
+                  >
                     <S.Link>Quần Jeans</S.Link>
+                  </S.MenuItemList>
+                  <S.MenuItemList
+                    onClick={() => {
+                      const newPath = generatePath(
+                        ROUTES.USER.COLLECTION_CATEGORY,
+                        {
+                          category: "shorts",
+                        }
+                      );
+                      navigate(newPath, { state: 3 });
+                    }}
+                  >
+                    <S.Link>Quần Shorts</S.Link>
                   </S.MenuItemList>
                 </S.MenuItemLists>
               </S.MenuItem>
@@ -50,7 +125,7 @@ function Footer() {
                 {/* tài liệu tuyen dung */}
                 <S.MenuItemHead>Về Chúng tôi</S.MenuItemHead>
                 <S.MenuItemLists>
-                  <S.MenuItemList>
+                  <S.MenuItemList onClick={() => navigate(ROUTES.USER.ABOUT)}>
                     <S.Link>Câu chuyện về chúng tôi</S.Link>
                   </S.MenuItemList>
                 </S.MenuItemLists>

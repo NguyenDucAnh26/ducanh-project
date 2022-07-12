@@ -4,6 +4,7 @@ import { REQUEST, SUCCESS, FAIL, COMMENT_ACTION } from "../constants";
 const initialState = {
   commentList: {
     data: [],
+    meta: {},
     loading: false,
     error: null,
   },
@@ -25,12 +26,13 @@ const commentReducer = createReducer(initialState, {
     };
   },
   [SUCCESS(COMMENT_ACTION.GET_COMMENT_LIST)]: (state, action) => {
-    const { data } = action.payload;
+    const { data, meta } = action.payload;
     return {
       ...state,
       commentList: {
         ...state.commentList,
         data: data,
+        meta: meta,
         loading: false,
       },
     };

@@ -61,9 +61,12 @@ export const CardContentBtn = styled.a`
   padding: 0 30px;
   transition: all 0.2s;
   cursor: pointer;
-  font-weight: 400;
+  font-weight: 500;
   &:hover {
     background-color: #ccc;
     color: #000;
+  }
+  @media (max-width: 762px) {
+    font-size: 14px;
   }
 `;

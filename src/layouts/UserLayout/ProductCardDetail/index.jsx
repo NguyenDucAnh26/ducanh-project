@@ -13,7 +13,7 @@ import {
 } from "../../../redux/actions";
 import * as S from "./styles";
 const { Meta } = Card;
-function ProductCardHomePage({ data }) {
+function ProductCardDetail({ data }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [colorSelected, setColorSelected] = useState();
@@ -29,7 +29,7 @@ function ProductCardHomePage({ data }) {
       <Radio.Button
         key={item.id}
         value={item.color}
-        className="custom-button-detail-color-homepage"
+        className="custom-button-detail-color-detail"
       >
         <S.ImgRadio src={item.url} />
       </Radio.Button>
@@ -120,7 +120,12 @@ function ProductCardHomePage({ data }) {
     return (
       <S.StarWrapper>
         <S.StarGrid>
-          <Rate disabled defaultValue={totalRateAverage} show />
+          <Rate
+            style={{ fontSize: "12px" }}
+            disabled
+            defaultValue={totalRateAverage}
+            show
+          />
           <S.RateNumbers>({data.comments.length})</S.RateNumbers>
         </S.StarGrid>
       </S.StarWrapper>
@@ -131,7 +136,7 @@ function ProductCardHomePage({ data }) {
     <Card
       className="product-card-collection"
       style={{
-        minHeight: "560px",
+        minHeight: "522px",
         width: 240,
       }}
       cover={
@@ -155,7 +160,6 @@ function ProductCardHomePage({ data }) {
             />
             {renderImagePresentProduct}
             {renderImagePresentHoverProduct}
-            {/*  */}
             <S.SizeProduct id="show-size">
               <Form>
                 <Form.Item name="radio-button">
@@ -170,9 +174,6 @@ function ProductCardHomePage({ data }) {
                 </Form.Item>
               </Form>
             </S.SizeProduct>
-            <S.RibbonRightCorner>
-              <S.RibbonContent>Best Seller</S.RibbonContent>
-            </S.RibbonRightCorner>
           </S.ProductImgWrapper>
         )
       }
@@ -202,4 +203,4 @@ function ProductCardHomePage({ data }) {
   );
 }
 
-export default ProductCardHomePage;
+export default ProductCardDetail;

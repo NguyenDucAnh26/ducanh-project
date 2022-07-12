@@ -66,28 +66,6 @@ const cartReducer = createReducer(initialState, {
   clean: (state) => {
     state.cartList.data = [];
   },
-  // [SUCCESS(CART_ACTION.GET_CART_LIST)]: (state, action) => {
-  //   const { data } = action.payload;
-  //   return {
-  //     ...state,
-  //     cartList: {
-  //       ...state.cartList,
-  //       data: data,
-  //       loading: false,
-  //     },
-  //   };
-  // },
-  // [FAIL(CART_ACTION.GET_CART_LIST)]: (state, action) => {
-  //   const { error } = action.payload;
-  //   return {
-  //     ...state,
-  //     cartList: {
-  //       ...state.cartList,
-  //       loading: false,
-  //       error: error,
-  //     },
-  //   };
-  // },
 
   [REQUEST(CART_ACTION.CREATE_CART)]: (state, action) => {
     const { data } = action.payload;
@@ -122,26 +100,7 @@ const cartReducer = createReducer(initialState, {
       },
     };
   },
-  // [SUCCESS(CART_ACTION.CREATE_CART)]: (state, action) => {
-  //   return {
-  //     ...state,
-  //     createCartData: {
-  //       ...state.createCartData,
-  //       loading: false,
-  //     },
-  //   };
-  // },
-  // [FAIL(CART_ACTION.CREATE_CART)]: (state, action) => {
-  //   const { error } = action.payload;
-  //   return {
-  //     ...state,
-  //     createCartData: {
-  //       ...state.createCartData,
-  //       loading: false,
-  //       error: error,
-  //     },
-  //   };
-  // },
+
   [REQUEST(CART_ACTION.DELETE_CART)]: (state, action) => {
     return {
       ...state,

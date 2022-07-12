@@ -47,6 +47,7 @@ function HomeCollection() {
           </Col>
         );
       }
+      return null;
     });
   }, [categoryList]);
 

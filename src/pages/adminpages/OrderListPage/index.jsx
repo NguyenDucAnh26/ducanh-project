@@ -1,27 +1,47 @@
 import React from "react";
 
 import * as S from "./styles";
-import { Space, Table, Button, Popconfirm, Tag, message } from "antd";
+import {
+  Space,
+  Table,
+  Button,
+  Popconfirm,
+  Tag,
+  message,
+  Pagination,
+} from "antd";
 import { DeleteOutlined, EyeOutlined } from "@ant-design/icons";
 import { getOrderListAction, deleteOrderAction } from "../../../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, generatePath } from "react-router-dom";
 import { ROUTES } from "../../../constants/routes";
+import { PAGE_SIZE } from "../../../constants/pagination";
 import { useEffect, useState } from "react";
 function OrderListPage() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getOrderListAction());
+    dispatch(getOrderListAction({ page: 1, limit: PAGE_SIZE.SMALL }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const navigate = useNavigate();
   const { orderList } = useSelector((state) => state.order);
+  console.log(
+    "🚀 ~ file: index.jsx ~ line 28 ~ OrderListPage ~ orderList",
+    orderList
+  );
   const [deleteId, setDeleteId] = useState();
   const confirm = () => {
     dispatch(deleteOrderAction({ id: deleteId }));
     message.success("Deleted complete");
   };
-
+  function handleChanglePage(page) {
+    dispatch(
+      getOrderListAction({
+        page: page,
+        limit: PAGE_SIZE.SMALL,
+      })
+    );
+  }
   const cancel = () => {
     message.info("Not Delete");
   };
@@ -186,6 +206,7 @@ function OrderListPage() {
       },
     },
   ];
+
   return (
     <S.OrderContainer>
       <S.OrderWrapper>
@@ -193,9 +214,20 @@ function OrderListPage() {
           <S.HeadTitle>Orders</S.HeadTitle>
         </S.OrderHead>
         <Table
+          style={{
+            marginBottom: "20px",
+          }}
           pagination={false}
           columns={columns}
           dataSource={orderListDataTable}
+        />
+        <Pagination
+          style={{
+            textAlign: "center",
+          }}
+          current={orderList.meta.page}
+          total={orderList.meta.total}
+          onChange={(page) => handleChanglePage(page)}
         />
       </S.OrderWrapper>
     </S.OrderContainer>

@@ -106,12 +106,24 @@ function* getUserInfoSaga(action) {
 }
 function* getUserListSaga(action) {
   try {
-    const result = yield axios.get(`http://localhost:4000/users`);
+    const { page, limit } = action.payload;
+
+    const result = yield axios.get(`http://localhost:4000/users`, {
+      params: {
+        _page: page,
+        _limit: limit,
+      },
+    });
 
     yield put({
       type: SUCCESS(USER_ACTION.GET_USER_LIST),
       payload: {
         data: result.data,
+        meta: {
+          page,
+          limit,
+          total: parseInt(result.headers["x-total-count"]),
+        },
       },
     });
   } catch (e) {

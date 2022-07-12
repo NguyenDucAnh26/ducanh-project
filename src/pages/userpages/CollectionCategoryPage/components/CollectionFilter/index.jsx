@@ -3,8 +3,17 @@ import React from "react";
 import * as S from "./styles";
 import { Form, Input, Select } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
 const { Option } = Select;
-function CollectionFilter({ handleSearh }) {
+
+function CollectionFilter({
+  handleSearh,
+  handleFilterCategory,
+  handleSortPrice,
+  filterParams,
+}) {
   return (
     <S.Filter>
       <S.FilterContainer>
@@ -37,33 +46,16 @@ function CollectionFilter({ handleSearh }) {
           <S.FilterSelect>
             <S.SelectItem>
               <Select
-                placeholder="Kích cỡ"
-                style={{
-                  width: 130,
-                  borderRadius: "50px",
-                }}
-              >
-                <Option value="S">S</Option>
-                <Option value="M">M</Option>
-                <Option value="L">L</Option>
-                <Option value="XL">XL</Option>
-                <Option value="2XL">2XL</Option>
-                <Option value="3XL">3XL</Option>
-              </Select>
-            </S.SelectItem>
-            <S.SelectItem>
-              <Select
-                defaultValue=""
+                placeholder="sắp xếp"
                 style={{
                   width: 130,
                 }}
+                value={filterParams.sortOrder}
+                allowClear
+                onChange={(value) => handleSortPrice(value)}
               >
-                <Option value="">Sắp xếp</Option>
-                <Option value="lucy">Mới nhất</Option>
-                <Option value="bán chạy">Bán chạy</Option>
-                <Option value="giá thấp đến cao">Giá thấp đến cao</Option>
-                <Option value="giá cao đến thấp">Giá cao đến thấp</Option>
-                <Option value="% giảm giá nhiều">% giảm giá nhiều</Option>
+                <Option value="asc">Giá thấp đến cao</Option>
+                <Option value="desc">Giá cao đến thấp</Option>
               </Select>
             </S.SelectItem>
           </S.FilterSelect>

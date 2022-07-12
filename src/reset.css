@@ -3,6 +3,42 @@
    License: none (public domain)
 */
 
+.pagination-detail-comment .ant-pagination-item-active a {
+  color: black;
+}
+.pagination-detail-comment .ant-pagination-item-active {
+  font-weight: 700;
+  background: #fff;
+  border-color: black;
+}
+.kep-login-facebook {
+  width: 100%;
+  background-color: #121212;
+  border: white;
+  border-radius: 20px;
+  height: 44px;
+  background-color: #3b5998;
+  border: white;
+  text-align: center;
+  border-radius: 50px !important;
+  color: #fff;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+/* about pagewords */
+
+.slick-prev:before,
+.slick-next:before {
+  font-family: "slick";
+  font-size: 20px;
+  line-height: 1;
+  opacity: 0.75;
+  color: BLACK;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .img-detail {
   width: 100%;
   height: 100%;

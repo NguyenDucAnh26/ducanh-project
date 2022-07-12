@@ -174,14 +174,16 @@ function Header({
                 onMouseOver={() => setIsShowMenuAbout(true)}
                 onMouseOut={() => setIsShowMenuAbout(false)}
               >
-                <S.MenuItemLink>Về Chúng tôi</S.MenuItemLink>
+                <S.MenuItemLink onClick={() => navigate(ROUTES.USER.ABOUT)}>
+                  Về Chúng tôi
+                </S.MenuItemLink>
               </S.MenuItem>
               <MenuHeaderAbout
                 isShowMenuAbout={isShowMenuAbout}
                 setIsShowMenuAbout={setIsShowMenuAbout}
               />
 
-              <S.MenuItem>
+              <S.MenuItem onClick={() => navigate(ROUTES.USER.SIZES)}>
                 <S.MenuItemLink>Chọn Size</S.MenuItemLink>
               </S.MenuItem>
             </S.MenuList>

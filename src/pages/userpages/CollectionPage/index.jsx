@@ -14,6 +14,7 @@ function CollectionPage() {
     keyword: "",
     categoryIds: [],
   });
+
   function handleSearh(value) {
     setFilterParams({
       ...filterParams,
@@ -40,6 +41,20 @@ function CollectionPage() {
       })
     );
   }
+  function handleSortPrice(value) {
+    setFilterParams({
+      ...filterParams,
+      sortOrder: value,
+    });
+    dispatch(
+      getColorListAction({
+        ...filterParams,
+        page: 1,
+        limit: PAGE_SIZE.MINI,
+        sortOrder: value,
+      })
+    );
+  }
   const handleShowMore = () => {
     dispatch(
       getColorListAction({
@@ -57,6 +72,7 @@ function CollectionPage() {
         setFilterParams={setFilterParams}
         handleSearh={handleSearh}
         handleFilterCategory={handleFilterCategory}
+        handleSortPrice={handleSortPrice}
       />
 
       <CollectionList

@@ -23,6 +23,14 @@
   border-radius: 10px;
   border: none !important;
 }
+.custom-button-detail-color-detail {
+  padding: 0;
+  margin: 0 4px 10px 0;
+  width: 32px;
+  height: 22px;
+  border-radius: 10px;
+  border: none !important;
+}
 .custom-button-detail-color-homepage:hover {
   opacity: 0.5;
 }

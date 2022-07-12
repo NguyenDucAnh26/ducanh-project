@@ -4,11 +4,23 @@ import { REQUEST, SUCCESS, FAIL, ORDER_ACTION } from "../constants";
 
 function* getOrderListSaga(action) {
   try {
-    const result = yield axios.get(`http://localhost:4000/orders`);
+    const { page, limit } = action.payload;
+
+    const result = yield axios.get(`http://localhost:4000/orders`, {
+      params: {
+        _page: page,
+        _limit: limit,
+      },
+    });
     yield put({
       type: SUCCESS(ORDER_ACTION.GET_ORDER_LIST),
       payload: {
         data: result.data,
+        meta: {
+          page,
+          limit,
+          total: parseInt(result.headers["x-total-count"]),
+        },
       },
     });
   } catch (e) {

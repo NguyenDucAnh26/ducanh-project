@@ -145,15 +145,21 @@ function Register() {
             >
               Hoặc
             </Divider>
-            <Form.Item>
-              <Button className="btn-login btn-login-fb">
+            <Form.Item style={{ pointerEvents: "none" }}>
+              <Button
+                style={{ pointerEvents: "none" }}
+                className="btn-login btn-login-fb"
+              >
                 Đăng ký với Facebook
                 <FacebookFilled />
               </Button>
             </Form.Item>
 
-            <Form.Item>
-              <Button className="btn-login btn-login-gg">
+            <Form.Item style={{ pointerEvents: "none" }}>
+              <Button
+                style={{ pointerEvents: "none" }}
+                className="btn-login btn-login-gg"
+              >
                 Đăng ký với Google
                 <GooglePlusOutlined />
               </Button>

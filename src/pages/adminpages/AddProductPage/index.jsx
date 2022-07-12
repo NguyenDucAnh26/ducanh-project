@@ -144,7 +144,7 @@ function AddProductPage() {
               }}
             >
               <Button
-                type="primary"
+                className="btn btn-add-product"
                 htmlType="submit"
                 loading={createProductData.loading}
               >

@@ -2,6 +2,7 @@ import React from "react";
 import * as S from "./styles";
 import "./custom.css";
 import { ROUTES } from "../../../constants/routes";
+import { PAGE_SIZE } from "../../../constants/pagination";
 import {
   HomeOutlined,
   ShoppingOutlined,
@@ -29,10 +30,11 @@ import {
   Card,
   Input,
   Image,
+  Pagination,
 } from "antd";
 import Slider from "react-slick";
-// import ProductCard from "../../../layouts/UserLayout/ProductCard";
-import { useState, useEffect, useRef } from "react";
+import ProductCardDetail from "../../../layouts/UserLayout/ProductCardDetail";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -45,11 +47,65 @@ import {
   getVariantListAction,
   getCommentListAction,
   sendCommentAction,
+  getViewedProducts,
+  getProductListUserAction,
 } from "../../../redux/actions";
 const { Panel } = Collapse;
 const { Title } = Typography;
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: "block" }}
+      onClick={onClick}
+    />
+  );
+}
 
-const settings = {};
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: "block" }}
+      onClick={onClick}
+    />
+  );
+}
+const settings2 = {
+  infinite: true,
+  speed: 500,
+  slidesToShow: 5,
+  slidesToScroll: 2,
+  nextArrow: <SampleNextArrow style={{ color: "black" }} />,
+  prevArrow: <SamplePrevArrow style={{ color: "black" }} />,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+      },
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        initialSlide: 2,
+      },
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+      },
+    },
+  ],
+};
 const text = (
   <span
     style={{
@@ -127,22 +183,30 @@ function ProductDetailPage() {
   const { id } = useParams();
   const { state } = useLocation();
 
-  const { productDetail } = useSelector((state) => state.product);
+  const { productDetail, viewedProducts } = useSelector(
+    (state) => state.product
+  );
+
   const { variantList } = useSelector((state) => state.variant);
+  const { productListUser } = useSelector((state) => state.product);
   const { commentList } = useSelector((state) => state.comment);
   const { userInfo } = useSelector((state) => state.user);
   const { colorList } = useSelector((state) => state.color);
   const { productImagesList } = useSelector((state) => state.productImages);
+
   useEffect(() => {
     dispatch(getVariantListAction());
     dispatch(getColorListAction({ limit: 100 }));
     dispatch(getProductImagesListAction());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    dispatch(getViewedProducts());
+    dispatch(getProductListUserAction({}));
   }, []);
   useEffect(() => {
     dispatch(getProductDetailAction({ id: id }));
-    dispatch(getCommentListAction({ productId: id }));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    dispatch(
+      getCommentListAction({ productId: id, page: 1, limit: PAGE_SIZE.SUPMINI })
+    );
+    // eslint-disable-next-line reacreatct-hooks/exhaustive-deps
   }, [id]);
 
   let totalRate = 0;
@@ -150,6 +214,16 @@ function ProductDetailPage() {
     totalRate += item.rate;
   });
   let totalRateAverage = totalRate / commentList.data.length;
+
+  // pagination  change
+  function handleChanglePage(page) {
+    dispatch(
+      getCommentListAction({
+        page: page,
+        limit: PAGE_SIZE.SUPMINI,
+      })
+    );
+  }
 
   const handleSendComment = (values) => {
     dispatch(
@@ -294,6 +368,20 @@ function ProductDetailPage() {
     );
     openNotificationWithIcon();
   }
+
+  const ProductListSameCategory = productListUser.data.filter(
+    (item) => item.categoryId === productDetail.data.categoryId
+  );
+  const renderViewedProducts = useMemo(() => {
+    return viewedProducts.data.map((item, index) => {
+      return (
+        <S.CardWrapper key={item.id}>
+          <ProductCardDetail data={item} />
+        </S.CardWrapper>
+      );
+    });
+  }, [viewedProducts]);
+
   return (
     <S.ProductDetail>
       <S.ProductDetailContainer>
@@ -314,7 +402,7 @@ function ProductDetailPage() {
         </S.BreadcrumbContainer>
         <S.DetailMain>
           <S.ProductImgWrapper>
-            <Slider {...settings} ref={sliderRef}>
+            <Slider ref={sliderRef}>
               {productDetail.loading ? (
                 <Spin
                   indicator={
@@ -661,14 +749,62 @@ function ProductDetailPage() {
             </div>
           </S.PreviewTitle>
 
-          <Row gutter={[16, 24]}>{renderComments}</Row>
+          <Row gutter={[16, 24]}>
+            {commentList.data.length === 0 ? (
+              <p
+                style={{
+                  fontSize: "16px",
+                  fontWeight: "bold",
+                  textAlign: "center",
+                }}
+              >
+                chưa có đánh giá
+              </p>
+            ) : (
+              renderComments
+            )}
+          </Row>
+          <Pagination
+            size="small"
+            className="pagination-detail-comment"
+            style={{
+              textAlign: "center",
+            }}
+            pageSize={PAGE_SIZE.SUPMINI}
+            current={commentList.meta.page}
+            total={commentList.meta.total}
+            onChange={(page) => {
+              handleChanglePage(page);
+            }}
+          />
         </S.PreviewProduct>
-
+        <Divider />
         <S.SuggestProductsContainer>
+          <S.ProductSameCategory>
+            <S.TitleProducts>Sản phẩm cùng loại</S.TitleProducts>
+            <Slider {...settings2}>
+              {productListUser.data &&
+                ProductListSameCategory.map((item, index) => {
+                  if (ProductListSameCategory.length >= 5) {
+                    return (
+                      <S.CardWrapper key={item.id}>
+                        <ProductCardDetail data={item} />
+                      </S.CardWrapper>
+                    );
+                  }
+                  return null;
+                })}
+            </Slider>
+          </S.ProductSameCategory>
+          <Divider />
           <S.ProductsSave>
-            {/* <Slider><ProductCard /></Slider> */}
+            {viewedProducts.data.length !== 0 && (
+              <S.TitleProducts>Sản phẩm đã xem gần đây</S.TitleProducts>
+            )}
+            <Slider {...settings2}>
+              {viewedProducts.data.length >= 5 && renderViewedProducts}
+            </Slider>
           </S.ProductsSave>
-          <S.ProductSameCategory></S.ProductSameCategory>
         </S.SuggestProductsContainer>
       </S.ProductDetailContainer>
     </S.ProductDetail>

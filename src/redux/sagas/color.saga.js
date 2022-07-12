@@ -4,7 +4,14 @@ import { REQUEST, SUCCESS, FAIL, COLOR_ACTION } from "../constants";
 
 function* getColorListSaga(action) {
   try {
-    const { keyword, categoryIds, limit, more, page } = action.payload;
+    const {
+      keyword,
+      categoryIds,
+      limit,
+      more,
+      page,
+      sortOrder,
+    } = action.payload;
 
     const result = yield axios.get(`http://localhost:4000/colors`, {
       params: {
@@ -13,6 +20,10 @@ function* getColorListSaga(action) {
         _page: page,
         categoryId: categoryIds,
         q: keyword,
+        ...(sortOrder && {
+          _sort: "productPrice",
+          _order: sortOrder,
+        }),
       },
     });
     yield put({

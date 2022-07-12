@@ -14,6 +14,13 @@ const initialState = {
     loading: false,
     error: null,
   },
+  viewedProducts: {
+    data: localStorage.getItem("viewedProducts")
+      ? JSON.parse(localStorage.getItem("viewedProducts"))
+      : [],
+    loading: false,
+    error: null,
+  },
   productDetail: {
     data: {},
     loading: false,
@@ -101,7 +108,24 @@ const productReducer = createReducer(initialState, {
       },
     };
   },
-
+  [REQUEST(PRODUCT_ACTION.GET_VIEWED_PRODUCTS)]: (state) => {
+    const item = state.viewedProducts.data.find(
+      (item) => item.id === state.productDetail.data.id
+    );
+    if (!item && state.productDetail.data.name) {
+      localStorage.setItem(
+        "viewedProducts",
+        JSON.stringify(state.viewedProducts.data)
+      );
+      return {
+        ...state,
+        viewedProducts: {
+          ...state.viewedProducts,
+          data: [state.productDetail.data, ...state.viewedProducts.data],
+        },
+      };
+    }
+  },
   [REQUEST(PRODUCT_ACTION.GET_PRODUCT_DETAIL)]: (state) => {
     return {
       ...state,
@@ -115,6 +139,7 @@ const productReducer = createReducer(initialState, {
 
   [SUCCESS(PRODUCT_ACTION.GET_PRODUCT_DETAIL)]: (state, action) => {
     const { data } = action.payload;
+
     return {
       ...state,
       productDetail: {
